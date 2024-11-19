@@ -802,7 +802,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/plant/energy?plant_id={{plant_id}}",
+							"raw": "{{baseUrl}}/plant/energy?plant_id={{plant_id}}&token={{token}}",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -818,38 +818,43 @@
 								},
 								{
 									"key": "start_date",
-									"value": null,
+									"value": "",
 									"description": "Start Date",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "end_date",
-									"value": null,
+									"value": "",
 									"description": "End Date(date interval cannot exceed 7 days)",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "time_unit",
-									"value": null,
+									"value": "",
 									"description": "time type:”day” or “month” or “year”",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "page",
-									"value": null,
+									"value": "",
 									"description": "page number,default 1",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "perpage",
-									"value": null,
+									"value": "",
 									"description": "Number of pages per page, default 20, max 100",
 									"type": "text",
 									"disabled": true
+								},
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
 								}
 							]
 						}
@@ -917,7 +922,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/plant/power?device_sn=98292",
+							"raw": "{{baseUrl}}/plant/power?device_sn=DYD5A33027",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -928,7 +933,7 @@
 							"query": [
 								{
 									"key": "device_sn",
-									"value": "98292",
+									"value": "DYD5A33027",
 									"description": "Device serial number (non-collector serial number)"
 								}
 							]
