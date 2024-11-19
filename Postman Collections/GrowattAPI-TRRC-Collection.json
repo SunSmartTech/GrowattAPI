@@ -1,0 +1,1840 @@
+{
+	"info": {
+		"_postman_id": "7cababc7-05da-4430-8bce-a25a2e803541",
+		"name": "ShineServer - TRRC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "62e4c6a9-b446-4b4e-90d6-1c78fc72a70e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4fce9af6-7c90-4478-825e-527fb9ee48ca",
+								"exec": [
+									"base_url = pm.environment.get(\"baseUrl\");\r",
+									"console.log(base_url);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "1409625f-8644-4741-b508-b5c0519ae767",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user/user_register?user_name={{user_name}}&user_password={{password}}&user_email={{email}}&user_type=1&user_country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"user_register"
+							],
+							"query": [
+								{
+									"key": "user_name",
+									"value": "{{user_name}}",
+									"description": "username"
+								},
+								{
+									"key": "user_password",
+									"value": "{{password}}",
+									"description": "Password"
+								},
+								{
+									"key": "user_email",
+									"value": "{{email}}",
+									"description": "Register Email"
+								},
+								{
+									"key": "user_type",
+									"value": "1",
+									"description": "User Type (1 for end customers)"
+								},
+								{
+									"key": "user_country",
+									"value": "{{country}}",
+									"description": "User Country"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify",
+					"id": "5abdde68-96c1-452e-b11b-87e4f7e80e78",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user/modify?c_user_id={{user_id}}&mobile=<mobile number>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"modify"
+							],
+							"query": [
+								{
+									"key": "c_user_id",
+									"value": "{{user_id}}",
+									"description": "User ID"
+								},
+								{
+									"key": "mobile",
+									"value": "<mobile number>",
+									"description": "Mobile number"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check_user",
+					"id": "665c4260-9849-4886-8093-1dac66594aa6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user/check_user?user_name={{user_name}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"check_user"
+							],
+							"query": [
+								{
+									"key": "user_name",
+									"value": "{{user_name}}",
+									"description": "username"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "c_user_list",
+					"id": "b1907adb-5ebb-4d03-aa4d-4c32c8023b5d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user/c_user_list?page=1&perpage=100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"c_user_list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number,default 1"
+								},
+								{
+									"key": "perpage",
+									"value": "100",
+									"description": "Number of pages per page, default 20, max 100"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3883f309-3ffe-4a3b-87a2-ae106d8ee9f9",
+							"name": "c_user_list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/user/c_user_list?page=1&perpage=100",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"c_user_list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "page number,default 1"
+										},
+										{
+											"key": "perpage",
+											"value": "100",
+											"description": "Number of pages per page, default 20, max 100"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 15 Oct 2024 19:08:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "357"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=d0724c395727ce8eb048bea7fa14fd42|1729019307|1729019133;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=d0724c395727ce8eb048bea7fa14fd42|1729019307|1729019133;Path=/;SameSite=None;Secure"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"error_msg\":\"\",\"data\":{\"c_user\":[{\"c_user_id\":3061113,\"c_user_regtime\":\"2024-10-15 21:07:58\",\"c_user_tel\":null,\"c_user_email\":\"junior@turacogroup.co.za\",\"c_user_name\":\"ARMZA001\"},{\"c_user_id\":3061115,\"c_user_regtime\":\"2024-10-15 21:08:31\",\"c_user_tel\":null,\"c_user_email\":\"junior@turacogroup.co.za\",\"c_user_name\":\"usernametest\"}],\"count\":2},\"error_code\":0}"
+						}
+					]
+				}
+			],
+			"id": "aa1a4930-f3ec-4b48-a920-5cb06a7302b1",
+			"description": "User management interface"
+		},
+		{
+			"name": "plant",
+			"item": [
+				{
+					"name": "add",
+					"id": "c5104453-d9c6-4578-9eb6-f8db33a89af8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/add?c_user_id={{user_id}}&name={{plant_name}}&peak_power={{plant_peak_power}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"add"
+							],
+							"query": [
+								{
+									"key": "c_user_id",
+									"value": "{{user_id}}",
+									"description": "User ID to which the power station belongs"
+								},
+								{
+									"key": "name",
+									"value": "{{plant_name}}",
+									"description": "power station name"
+								},
+								{
+									"key": "peak_power",
+									"value": "{{plant_peak_power}}",
+									"description": "peak power (kWp)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify",
+					"id": "9dfa79ca-ef4e-4faa-82a9-c48789d62b0c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/modify?c_user_id={{user_id}}&plant_id={{plant_id}}&name={{plant_name}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"modify"
+							],
+							"query": [
+								{
+									"key": "c_user_id",
+									"value": "{{user_id}}"
+								},
+								{
+									"key": "plant_id",
+									"value": "{{plant_id}}"
+								},
+								{
+									"key": "name",
+									"value": "{{plant_name}}"
+								},
+								{
+									"key": "currency",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user_plant_list",
+					"id": "e043a9a8-c474-4b4d-988d-6c023d6ffd29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/user_plant_list?user_name={{user_name}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"user_plant_list"
+							],
+							"query": [
+								{
+									"key": "user_name",
+									"value": "{{user_name}}",
+									"description": "User Account"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number,default 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "perpage",
+									"value": "20",
+									"description": "Number of pages per page, default 20, max 100",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"id": "e4ebc3e8-0e6d-400a-90d6-66a9eb86f4a9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null,
+									"description": "page number,default 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "perpage",
+									"value": null,
+									"description": "Number of pages per page, default 20, max 100",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "search_type",
+									"value": null,
+									"description": "search type",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "search_keyword",
+									"value": null,
+									"description": "search keywords",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "61260157-72d8-4e2c-b55c-0e40a880eb4c",
+							"name": "list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/plant/list",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plant",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "page number,default 1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "perpage",
+											"value": null,
+											"description": "Number of pages per page, default 20, max 100",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "search_type",
+											"value": null,
+											"description": "search type",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "search_keyword",
+											"value": null,
+											"description": "search keywords",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Nov 2024 15:01:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731942081|1731940788;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731942081|1731940788;Path=/;SameSite=None;Secure"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"error_msg\":\"\",\"data\":{\"plants\":[{\"total_energy\":\"0\",\"plant_id\":423136,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Sandton\",\"image_url\":\"423136_1images1624639701.jpg\",\"latitude\":\"-26.05447\",\"current_power\":\"0.0\",\"locale\":\"en-US\",\"peak_power\":0.004999999888241291,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":614356,\"name\":\"21 Cherry Place\",\"create_date\":\"2020-10-20\",\"status\":4,\"longitude\":\"28.05891\"},{\"total_energy\":\"262567\",\"plant_id\":86863,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Gillitts\",\"image_url\":\"86863_1images1574943221491.jpg\",\"latitude\":\"-29.79337\",\"current_power\":\"0.0\",\"locale\":\"en-US\",\"peak_power\":60,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Caltex Winston Park/ no service\",\"create_date\":\"2018-07-27\",\"status\":4,\"longitude\":\"30.7844\"},{\"total_energy\":\"345347.69\",\"plant_id\":87471,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Pinetown\",\"image_url\":null,\"latitude\":\"-29.82404\",\"current_power\":\"6629.4004\",\"locale\":\"en-US\",\"peak_power\":110,\"operator\":\"Hermans Pinetown\",\"installer\":\"Hermans Pinetown\",\"user_id\":124662,\"name\":\"Hermans Pinetown\",\"create_date\":\"2018-08-01\",\"status\":1,\"longitude\":\"30.83261\"},{\"total_energy\":\"1304343.38\",\"plant_id\":98292,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Berea\",\"image_url\":\"98292_1images1551183904823.jpg\",\"latitude\":\"-29.837668\",\"current_power\":\"21367.6\",\"locale\":\"en-US\",\"peak_power\":300,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Mr Price Complex\",\"create_date\":\"2018-10-06\",\"status\":1,\"longitude\":\"31.022934\"},{\"total_energy\":\"265233.19\",\"plant_id\":102350,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Durban\",\"image_url\":\"102350_1images1574943494821.jpg\",\"latitude\":\"-29.84064\",\"current_power\":\"2932.7\",\"locale\":\"en-US\",\"peak_power\":60,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"JB Park\",\"create_date\":\"2018-10-30\",\"status\":1,\"longitude\":\"31.04736\"},{\"total_energy\":\"0\",\"plant_id\":104056,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Durban\",\"image_url\":\"104056_1images1574943437615.jpg\",\"latitude\":\"-29.79734\",\"current_power\":\"-1.0\",\"locale\":\"en-US\",\"peak_power\":160,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Norvo  - Plant, No service\",\"create_date\":\"2018-09-01\",\"status\":4,\"longitude\":\"31.01524\"},{\"total_energy\":\"2157350.25\",\"plant_id\":110051,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Amanzimtoti\",\"image_url\":\"110051_1images1677147667.jpg\",\"latitude\":\"-30.06538\",\"current_power\":\"0.0\",\"locale\":\"en-US\",\"peak_power\":300,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Seadoone Mall\",\"create_date\":\"2018-12-14\",\"status\":1,\"longitude\":\"30.87019\"},{\"total_energy\":\"222673.8\",\"plant_id\":125435,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Newlands East\",\"image_url\":\"125435_1images1574943522999.jpg\",\"latitude\":\"-29.77978\",\"current_power\":\"1216.3\",\"locale\":\"en-US\",\"peak_power\":30,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Photonote\",\"create_date\":\"2019-03-11\",\"status\":1,\"longitude\":\"31.00405\"},{\"total_energy\":\"320738.19\",\"plant_id\":171827,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Pinetown\",\"image_url\":\"171827_1images1566578419994.jpg\",\"latitude\":\"-29.819725\",\"current_power\":\"2729.7\",\"locale\":\"en-US\",\"peak_power\":140,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Marble Design\",\"create_date\":\"2019-06-14\",\"status\":1,\"longitude\":\"30.834945\"},{\"total_energy\":\"709810.88\",\"plant_id\":171828,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Durban\",\"image_url\":\"171828_1images1658306738.jpg\",\"latitude\":\"-29.72868\",\"current_power\":\"8211.5\",\"locale\":\"en-US\",\"peak_power\":180,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Blindsmart\",\"create_date\":\"2019-06-14\",\"status\":1,\"longitude\":\"31.0652\"},{\"total_energy\":\"442200.59\",\"plant_id\":171831,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Berea\",\"image_url\":\"171831_1images1566578518080.jpg\",\"latitude\":\"-29.86158\",\"current_power\":\"4605.4\",\"locale\":\"en-US\",\"peak_power\":60,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Glenwood Prep\",\"create_date\":\"2019-06-14\",\"status\":1,\"longitude\":\"30.9949\"},{\"total_energy\":\"217884.3\",\"plant_id\":171832,\"country\":\"Swaziland\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Manzini\",\"image_url\":\"171832_1images1566578236390.jpg\",\"latitude\":\"-26.48333\",\"current_power\":\"0.0\",\"locale\":\"en-US\",\"peak_power\":60,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"SPP Farm\",\"create_date\":\"2019-06-14\",\"status\":1,\"longitude\":\"31.36667\"},{\"total_energy\":\"405946.69\",\"plant_id\":171834,\"country\":\"Swaziland\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Manzini\",\"image_url\":\"171834_1images1661267654740.jpg\",\"latitude\":\"-26.47997\",\"current_power\":\"3478.3\",\"locale\":\"en-US\",\"peak_power\":50,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Tinkhukhu Farm\",\"create_date\":\"2019-06-14\",\"status\":1,\"longitude\":\"31.39793\"},{\"total_energy\":\"1521428.25\",\"plant_id\":206732,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Durban\",\"image_url\":\"Serco drone image.jpg\",\"latitude\":\"-29.72362\",\"current_power\":\"14533.2\",\"locale\":\"en-US\",\"peak_power\":400,\"operator\":\"TRRC\",\"installer\":\"TRRC\",\"user_id\":124662,\"name\":\"Serco\",\"create_date\":\"2019-09-25\",\"status\":1,\"longitude\":\"31.00203\"},{\"total_energy\":\"667159.19\",\"plant_id\":216984,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Kwa-Zulu Natal\",\"image_url\":\"216984_1images1579851969523.jpg\",\"latitude\":\"-28.71308\",\"current_power\":\"0.0\",\"locale\":\"en-US\",\"peak_power\":80,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"The Cavern Drakensberg\",\"create_date\":\"2019-12-18\",\"status\":4,\"longitude\":\"29.38561\"},{\"total_energy\":\"892662.88\",\"plant_id\":216985,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Johannesburg\",\"image_url\":\"WhatsApp Image 2019-10-24 at 16.29.19.jpeg\",\"latitude\":\"-26.202271\",\"current_power\":\"10148.801\",\"locale\":\"en-US\",\"peak_power\":120,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Cullinan Pomona\",\"create_date\":\"2019-10-23\",\"status\":1,\"longitude\":\"28.043631\"},{\"total_energy\":\"758935.81\",\"plant_id\":216987,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Durban\",\"image_url\":\"216987_1images1579851832899.jpg\",\"latitude\":\"-29.8579\",\"current_power\":\"4552.7\",\"locale\":\"en-US\",\"peak_power\":160,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Cullinan West way\",\"create_date\":\"2019-11-23\",\"status\":1,\"longitude\":\"31.0292\"},{\"total_energy\":\"1009559.5\",\"plant_id\":216988,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Cape Town\",\"image_url\":\"WhatsApp Image 2019-11-09 at 18.35.39.jpeg\",\"latitude\":\"-33.925838\",\"current_power\":\"58079.2\",\"locale\":\"en-US\",\"peak_power\":130,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Cullinan Salt River\",\"create_date\":\"2019-10-23\",\"status\":1,\"longitude\":\"18.42322\"},{\"total_energy\":\"448745.5\",\"plant_id\":216990,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Cape Town\",\"image_url\":\"Chiapini pic 1.jpeg\",\"latitude\":\"-33.925838\",\"current_power\":\"23518.9\",\"locale\":\"en-US\",\"peak_power\":90,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Cullinan Chiapinni\",\"create_date\":\"2019-11-23\",\"status\":1,\"longitude\":\"18.42322\"},{\"total_energy\":\"914937.31\",\"plant_id\":216991,\"country\":\"SouthAfrica\",\"latitude_f\":null,\"latitude_d\":null,\"city\":\"Dolphin Coast\",\"image_url\":\"216991_1images1582001858204.jpg\",\"latitude\":\"-29.52362\",\"current_power\":\"4156.2\",\"locale\":\"en-US\",\"peak_power\":140,\"operator\":\"0\",\"installer\":\"0\",\"user_id\":124662,\"name\":\"Quarter Centre Ballito\",\"create_date\":\"2019-11-23\",\"status\":1,\"longitude\":\"31.19879\"}],\"count\":135},\"error_code\":0}"
+						}
+					]
+				},
+				{
+					"name": "plant_details",
+					"id": "7cb872cc-1d2b-4f9b-979f-883757e3018a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/details?plant_id={{plant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"details"
+							],
+							"query": [
+								{
+									"key": "plant_id",
+									"value": "{{plant_id}}",
+									"description": "Power Station ID"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "2ea5f52a-27c6-4ace-980d-cb0de3f57259",
+							"name": "plant_details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/plant/details?plant_id={{plant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plant",
+										"details"
+									],
+									"query": [
+										{
+											"key": "plant_id",
+											"value": "{{plant_id}}",
+											"description": "Power Station ID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Nov 2024 15:02:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731942172|1731940788;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731942172|1731940788;Path=/;SameSite=None;Secure"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"error_msg\":\"\",\"data\":{\"installed_panel_area\":\"\",\"country\":\"SouthAfrica\",\"jurisdictionorganization\":\"\",\"notes\":\"\",\"peak_power\":300,\"installed_ac_capacity\":\"\",\"inverters\":[{\"inverter_md\":\"\",\"inverter_num\":0,\"inverter_man\":\"Growatt\"}],\"state\":\"\",\"create_date\":\"2018-10-06\",\"dataloggers\":[{\"datalogger_md\":\"\",\"datalogger_man\":\"Growatt\",\"datalogger_num\":5}],\"longitude\":\"31.022934\",\"weathersensor_man\":\"\",\"installed_dc_capacity\":\"\",\"weathersensor_num\":\"\",\"designerorganization\":\"\",\"image_url\":\"98292_1images1551183904823.jpg\",\"designercontact\":\"\",\"plant_type\":0,\"offtakerorganization\":\"\",\"operatororganization\":\"\",\"user_id\":124662,\"name\":\"Mr Price Complex\",\"irradiationsensor_type\":\"\",\"installerorganization\":\"\",\"weathersensor_md\":\"\",\"postal\":\"\",\"arrays\":[{\"module_man\":\"Growatt\",\"module_md\":\"\",\"num_modules\":0}],\"maxs\":[{\"max_man\":\"Growatt\",\"max_md\":\"\",\"max_num\":4}],\"ownerorganization\":\"ZAR\",\"status\":\"\",\"grid_type\":\"\",\"financiercontact\":\"\",\"city\":\"Berea\",\"jurisdictioncontact\":\"\",\"timezone\":\"GMT+2\",\"latitude\":\"-29.837668\",\"installercontact\":\"\",\"weather_type\":\"\",\"description\":\"\",\"locale\":\"en_US\",\"fixed_azimuth\":\"\",\"currency\":\"ZAR\",\"elevation\":\"\",\"fixed_tilt\":\"\",\"address2\":\"\",\"address1\":\"123 Sandile Thusi Rd, Greyville, Berea, 4001, South Africa\",\"ownercontact\":\"ZAR\",\"operatorcontact\":\"\",\"financierorganization\":\"\",\"offtakercontact\":\"\",\"tracker_type\":\"\"},\"error_code\":0}"
+						}
+					]
+				},
+				{
+					"name": "plant_data",
+					"id": "3b6b1e4d-d636-4aeb-ab02-0e176ac888a6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/data?plant_id={{plant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"data"
+							],
+							"query": [
+								{
+									"key": "plant_id",
+									"value": "{{plant_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "a0f5ecfb-39fa-4b7e-8505-ac627ba6e159",
+							"name": "plant_data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/plant/data?plant_id={{plant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plant",
+										"data"
+									],
+									"query": [
+										{
+											"key": "plant_id",
+											"value": "{{plant_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Nov 2024 15:03:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731942185|1731940788;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731942185|1731940788;Path=/;SameSite=None;Secure"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"error_msg\":\"\",\"data\":{\"total_energy\":\"1304350.25\",\"last_update_time\":\"2024-11-18 17:00:20\",\"carbon_offset\":\"8149.8\",\"efficiency\":\"\",\"monthly_energy\":\"20374.5\",\"peak_power_actual\":300,\"timezone\":\"GMT+2\",\"current_power\":18.610000610351562,\"yearly_energy\":\"302228\",\"today_energy\":\"1767.3\"},\"error_code\":0}"
+						}
+					]
+				},
+				{
+					"name": "plant_energy",
+					"id": "fba60107-46ae-4abf-be13-b18e772da930",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/plant/energy?plant_id={{plant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"energy"
+							],
+							"query": [
+								{
+									"key": "plant_id",
+									"value": "{{plant_id}}",
+									"description": "Power Station ID"
+								},
+								{
+									"key": "start_date",
+									"value": null,
+									"description": "Start Date",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": null,
+									"description": "End Date(date interval cannot exceed 7 days)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "time_unit",
+									"value": null,
+									"description": "time type:”day” or “month” or “year”",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "page number,default 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "perpage",
+									"value": null,
+									"description": "Number of pages per page, default 20, max 100",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plant_power",
+					"id": "2c214a60-9bc0-48f0-9734-8f243c056f16",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/power?plant_id={{plant_id}}&date=\"2024-11-18 15:40\"",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"power"
+							],
+							"query": [
+								{
+									"key": "plant_id",
+									"value": "{{plant_id}}",
+									"description": "Power Station ID"
+								},
+								{
+									"key": "date",
+									"value": "\"2024-11-18 15:40\"",
+									"description": "date as string \"2018-12-13 10:45\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plant_sn_plant",
+					"id": "5d2107da-c59a-478f-9453-10eb636741d7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plant/power?device_sn=98292",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plant",
+								"power"
+							],
+							"query": [
+								{
+									"key": "device_sn",
+									"value": "98292",
+									"description": "Device serial number (non-collector serial number)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "dae2b516-4e16-4dc7-8544-f52145ebb3b2",
+			"description": "Plant management interface"
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "datalogger",
+					"item": [
+						{
+							"name": "add",
+							"id": "f2844bcd-7ff1-48fa-a0d4-8f04fef3d9eb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/datalogger/add?c_user_id={{user_id}}&plant_id={{plant_id}}&sn={{datalogger_sn}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"datalogger",
+										"add"
+									],
+									"query": [
+										{
+											"key": "c_user_id",
+											"value": "{{user_id}}"
+										},
+										{
+											"key": "plant_id",
+											"value": "{{plant_id}}"
+										},
+										{
+											"key": "sn",
+											"value": "{{datalogger_sn}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list",
+							"id": "0216fcb8-8c41-4ee7-bb72-29e8a3a752f2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/datalogger/list?plant_id={{plant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"datalogger",
+										"list"
+									],
+									"query": [
+										{
+											"key": "plant_id",
+											"value": "{{plant_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a343a0f3-aa73-4a13-b995-b9f1df352467",
+									"name": "list",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/device/datalogger/list?plant_id={{plant_id}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"device",
+												"datalogger",
+												"list"
+											],
+											"query": [
+												{
+													"key": "plant_id",
+													"value": "{{plant_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 18 Nov 2024 14:52:19 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Accept-Charset",
+											"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731941539|1731940788;Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731941539|1731940788;Path=/;SameSite=None;Secure"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\"error_msg\":\"\",\"data\":{\"peak_power_actual\":{\"formulaCo2\":0.4000000059604645,\"companyName\":\"\",\"etodayCo2Text\":\"0\",\"userBean\":null,\"formulaSo2\":1.5,\"gridPort\":\"\",\"children\":[],\"plantFromBean\":null,\"id\":98292,\"EYearMoneyText\":\"0\",\"tempType\":0,\"etotalCoalText\":\"0\",\"etotalSo2Text\":\"0\",\"plant_lng\":\"31.022934\",\"locationImgName\":\"null\",\"deviceCount\":0,\"map_countryId\":0,\"mapLat\":\"\",\"prMonth\":\"\",\"etotalMoney\":0,\"plantType\":0,\"windAngle\":0,\"formulaMoney\":3,\"mapCity\":\"\",\"nominalPower\":300000,\"logoImgName\":\"\",\"latitudeText\":\"null°null′null″\",\"userAccount\":\"gwhsolar\",\"storage_TodayToUser\":0,\"eventMessBeanList\":[],\"map_cityId\":0,\"createDateTextA\":\"\",\"status\":0,\"formulaMoneyUnitId\":\"ZAR\",\"energyMonth\":0,\"city\":\"Berea\",\"prToday\":\"\",\"etodayCoalText\":\"0\",\"currentPac\":0,\"parentID\":\"\",\"plantAddress\":\"123 Sandile Thusi Rd, Greyville, Berea, 4001, South Africa\",\"envTemp\":0,\"formulaCoal\":0.4000000059604645,\"treeID\":\"PLANT_98292\",\"hasStorage\":0,\"storage_TotalToUser\":0,\"fixedPowerPrice\":0,\"etodaySo2Text\":\"0\",\"panelTemp\":0,\"createDate\":{\"date\":6,\"hours\":0,\"seconds\":0,\"month\":9,\"timezoneOffset\":-480,\"year\":118,\"minutes\":0,\"time\":1538755200000,\"day\":6},\"map_provinceId\":0,\"pairViewUserAccount\":\"\",\"emonthSo2Text\":\"0\",\"peakPeriodPrice\":0,\"hasDeviceOnLine\":0,\"storage_BattoryPercentage\":0,\"etodayMoney\":0,\"formulaTree\":0,\"plantNmi\":\"\",\"protocolId\":\"\",\"gridServerUrl\":\"\",\"moneyUnitText\":\"R\",\"longitude_d\":\"\",\"country\":\"SouthAfrica\",\"longitude_f\":\"\",\"etodayMoneyText\":\"0\",\"longitude_m\":\"\",\"phoneNum\":\"\",\"storage_TodayToGrid\":0,\"designCompany\":\"TRRC\",\"installMapName\":\"\",\"currentPacStr\":\"\",\"etotalMoneyText\":\"0\",\"windSpeed\":0,\"valleyPeriodPrice\":0,\"latitude_f\":\"\",\"mapLng\":\"\",\"latitude_d\":\"\",\"level\":1,\"latitude_m\":\"\",\"energyYear\":0,\"longitudeText\":\"null°null′null″\",\"flatPeriodPrice\":0,\"emonthCoalText\":\"0\",\"paramBean\":null,\"etotalCo2Text\":\"0\",\"imgPath\":\"css/img/plant.gif\",\"isShare\":false,\"plant_lat\":\"-29.837668\",\"emonthCo2Text\":\"0\",\"timezone\":2,\"gridCompany\":\"\",\"storage_eChargeToday\":0,\"remark\":\"\",\"storage_TotalToGrid\":0,\"defaultPlant\":false,\"createDateText\":\"2018-10-06\",\"currentPacTxt\":\"0\",\"unitMap\":null,\"alarmValue\":0,\"treeName\":\"Mr Price Complex\",\"alias\":\"\",\"irradiance\":0,\"formulaMoneyStr\":\"\",\"onLineEnvCount\":0,\"storage_eDisChargeToday\":0,\"timezoneText\":\"GMT+2\",\"dataLogList\":[],\"map_areaId\":0,\"etotalFormulaTreeText\":\"0\",\"plantImgName\":\"98292_1images1551183904823.jpg\",\"eToday\":0,\"eTotal\":0,\"emonthMoneyText\":\"0\",\"nominalPowerStr\":\"300kWp\",\"plantName\":\"Mr Price Complex\"},\"count\":5,\"dataloggers\":[{\"last_update_time\":{\"date\":18,\"hours\":22,\"seconds\":18,\"month\":10,\"timezoneOffset\":-480,\"year\":124,\"minutes\":51,\"time\":1731941478146,\"day\":1},\"lost\":false,\"model\":\"ShineWiFi-X\",\"sn\":\"XGD5BH65F9\",\"type\":0,\"netmode\":\"NONE\",\"manufacturer\":\"Growatt\"},{\"last_update_time\":{\"date\":18,\"hours\":22,\"seconds\":18,\"month\":10,\"timezoneOffset\":-480,\"year\":124,\"minutes\":51,\"time\":1731941478132,\"day\":1},\"lost\":false,\"model\":\"ShineWiFi-X\",\"sn\":\"XGD5BH656N\",\"type\":0,\"netmode\":\"NONE\",\"manufacturer\":\"Growatt\"},{\"last_update_time\":{\"date\":18,\"hours\":22,\"seconds\":8,\"month\":10,\"timezoneOffset\":-480,\"year\":124,\"minutes\":51,\"time\":1731941468784,\"day\":1},\"lost\":false,\"model\":\"ShineWiFi-X\",\"sn\":\"XGD4B024DU\",\"type\":0,\"netmode\":\"NONE\",\"manufacturer\":\"Growatt\"},{\"last_update_time\":{\"date\":18,\"hours\":22,\"seconds\":18,\"month\":10,\"timezoneOffset\":-480,\"year\":124,\"minutes\":51,\"time\":1731941478245,\"day\":1},\"lost\":false,\"model\":\"ShineWiFi-X\",\"sn\":\"XGD4B02466\",\"type\":0,\"netmode\":\"NONE\",\"manufacturer\":\"Growatt\"},{\"last_update_time\":{\"date\":23,\"hours\":15,\"seconds\":49,\"month\":9,\"timezoneOffset\":-480,\"year\":124,\"minutes\":31,\"time\":1729668709624,\"day\":3},\"lost\":true,\"model\":\"ShineGPRS-X\",\"sn\":\"KLE1A142ED\",\"type\":0,\"netmode\":\"NONE\",\"manufacturer\":\"Growatt\"}]},\"error_code\":0}"
+								}
+							]
+						}
+					],
+					"id": "92b871a8-d6f6-4202-be1e-1d7c3ddf059e"
+				},
+				{
+					"name": "storage",
+					"item": [
+						{
+							"name": "add",
+							"id": "a2c4c9ad-efa5-4b91-b3cb-86347e71320c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/storage/add?c_user_id={{user_id}}&plant_id={{plant_id}}&sn=<storage_sn>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"storage",
+										"add"
+									],
+									"query": [
+										{
+											"key": "c_user_id",
+											"value": "{{user_id}}"
+										},
+										{
+											"key": "plant_id",
+											"value": "{{plant_id}}"
+										},
+										{
+											"key": "sn",
+											"value": "<storage_sn>"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "b730f4cf-b449-4818-b0f5-e1c337b59740"
+				},
+				{
+					"name": "max",
+					"item": [
+						{
+							"name": "max_data_info",
+							"id": "aa00b72c-6f97-4231-950c-8687678765e9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/max/max_data_info?device_sn={{max_device_sn}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"max",
+										"max_data_info"
+									],
+									"query": [
+										{
+											"key": "device_sn",
+											"value": "{{max_device_sn}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cbfef697-130d-44af-9f13-cf8d98762f09",
+									"name": "max_data_info",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/device/max/max_data_info?device_sn={{max_device_sn}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"device",
+												"max",
+												"max_data_info"
+											],
+											"query": [
+												{
+													"key": "device_sn",
+													"value": "{{max_device_sn}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 18 Nov 2024 15:05:55 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Accept-Charset",
+											"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731942355|1731940788;Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731942355|1731940788;Path=/;SameSite=None;Secure"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\"error_msg\":\"\",\"data\":{\"innerVersion\":\"TIAA10090402\",\"plantname\":\"\",\"communicationVersion\":\"ZBBA-0002\",\"groupId\":-1,\"bigDevice\":false,\"pflinep1_lp\":0,\"lcdLanguage\":0,\"updating\":false,\"lastUpdateTimeText\":\"2024-11-18 23:01:24\",\"children\":[],\"lost\":false,\"record\":null,\"energyDayMap\":{},\"model\":32393700000,\"backflowDefaultPower\":0,\"id\":0,\"facHigh\":0,\"pflinep1_pf\":0,\"pvPfCmdMemoryState\":0,\"deviceType\":0,\"pflinep4_lp\":0,\"voltageLowLimit\":0,\"serialNum\":\"ELD091702A\",\"level\":6,\"isTimingAuthorize\":0,\"pflinep4_pf\":0,\"powerMax\":\"\",\"imgPath\":\"./css/img/status_gray.gif\",\"facLow\":0,\"lastUpdateTime\":{\"date\":18,\"hours\":23,\"seconds\":24,\"month\":10,\"timezoneOffset\":-480,\"year\":124,\"minutes\":1,\"time\":1731942084000,\"day\":1},\"powerMaxText\":\"\",\"status\":1,\"strNum\":0,\"pflinep3_lp\":0,\"energyMonth\":0,\"timezone\":8,\"normalPower\":60000,\"remainDay\":0,\"voltageHighLimit\":0,\"portName\":\"ShinePano - XGD4B02466\",\"tcpServerIp\":\"8.211.2.160\",\"parentID\":\"LIST_XGD4B02466_3\",\"reactiveRate\":0,\"modelText\":\"A0B0D0T4PFU1M6S1\",\"treeID\":\"ELD091702A\",\"dtc\":5000,\"activeRate\":0,\"treeName\":\"Inverter 2 mrph\",\"alias\":\"Inverter 2 mrph\",\"sysTime\":\"\",\"fwVersion\":\"TI1.0\",\"power\":0,\"addr\":1,\"pflinep3_pf\":0,\"onOff\":0,\"powerMaxTime\":\"\",\"vacHigh\":0,\"pflinep2_lp\":0,\"plantId\":0,\"pfModel\":0,\"userName\":\"\",\"isAuthorize\":0,\"exportLimitPowerRate\":0,\"maxSetBean\":null,\"eToday\":0,\"eTotal\":0,\"exportLimit\":0,\"energyDay\":0,\"frequencyHighLimit\":0,\"pf\":0,\"frequencyLowLimit\":0,\"statusText\":\"max.status.normal\",\"energyMonthText\":\"0\",\"location\":\"\",\"dataLogSn\":\"XGD4B02466\",\"vacLow\":0,\"pflinep2_pf\":0},\"device_sn\":\"ELD091702A\",\"dataloggerSn\":\"XGD4B02466\",\"error_code\":0}"
+								}
+							]
+						},
+						{
+							"name": "max_set",
+							"id": "0ecece80-f4a9-452e-8b1d-1ea3d0d15fbe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/maxSet?max_sn={{max_device_sn}}&type=pv_active_p_rate&param1=100&param2=1&param3=\"\"&param4=\"\"&param5=\"\"&param6=\"\"&param7=\"\"&param8=\"\"&param9=\"\"&param10=\"\"&param11=\"\"&param12=\"\"&param13=\"\"&param14=\"\"&param15=\"\"&param16=\"\"&param17=\"\"&param18=\"\"&param19=\"\"",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"maxSet"
+									],
+									"query": [
+										{
+											"key": "max_sn",
+											"value": "{{max_device_sn}}"
+										},
+										{
+											"key": "type",
+											"value": "pv_active_p_rate"
+										},
+										{
+											"key": "param1",
+											"value": "100"
+										},
+										{
+											"key": "param2",
+											"value": "1"
+										},
+										{
+											"key": "param3",
+											"value": "\"\""
+										},
+										{
+											"key": "param4",
+											"value": "\"\""
+										},
+										{
+											"key": "param5",
+											"value": "\"\""
+										},
+										{
+											"key": "param6",
+											"value": "\"\""
+										},
+										{
+											"key": "param7",
+											"value": "\"\""
+										},
+										{
+											"key": "param8",
+											"value": "\"\""
+										},
+										{
+											"key": "param9",
+											"value": "\"\""
+										},
+										{
+											"key": "param10",
+											"value": "\"\""
+										},
+										{
+											"key": "param11",
+											"value": "\"\""
+										},
+										{
+											"key": "param12",
+											"value": "\"\""
+										},
+										{
+											"key": "param13",
+											"value": "\"\""
+										},
+										{
+											"key": "param14",
+											"value": "\"\""
+										},
+										{
+											"key": "param15",
+											"value": "\"\""
+										},
+										{
+											"key": "param16",
+											"value": "\"\""
+										},
+										{
+											"key": "param17",
+											"value": "\"\""
+										},
+										{
+											"key": "param18",
+											"value": "\"\""
+										},
+										{
+											"key": "param19",
+											"value": "\"\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "queries_many_max",
+							"id": "c3152c6e-0636-45db-b1d1-ec2047cb1e65",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/max/maxs_data?pageNum=1&maxs={{max_device_sn}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"max",
+										"maxs_data"
+									],
+									"query": [
+										{
+											"key": "pageNum",
+											"value": "1"
+										},
+										{
+											"key": "maxs",
+											"value": "{{max_device_sn}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "febf360c-013b-4068-96dd-2ba1f8227503"
+				},
+				{
+					"name": "list",
+					"id": "cd88c544-7f73-4af3-8fd3-7b8a507adfea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/device/list?plant_id={{plant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device",
+								"list"
+							],
+							"query": [
+								{
+									"key": "plant_id",
+									"value": "{{plant_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1cc11bf8-2ede-465b-8ecc-c064de1ea4b3",
+							"name": "list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/list?plant_id={{plant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"list"
+									],
+									"query": [
+										{
+											"key": "plant_id",
+											"value": "{{plant_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Nov 2024 14:59:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731941995|1731940788;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731941995|1731940788;Path=/;SameSite=None;Secure"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"error_msg\":\"\",\"data\":{\"devices\":[{\"last_update_time\":\"2024-11-18 16:56:23\",\"device_id\":0,\"device_sn\":\"ELD091702A\",\"lost\":false,\"model\":\"A0B0D0T4PFU1M6S1\",\"type\":1,\"datalogger_sn\":\"XGD4B02466\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:56:23\",\"device_id\":0,\"device_sn\":\"ELD091702A\",\"lost\":false,\"model\":\"A0B0D0T4PFU1M6S1\",\"type\":4,\"datalogger_sn\":\"XGD4B02466\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:55:02\",\"device_id\":0,\"device_sn\":\"QTG6B13012\",\"lost\":false,\"model\":\"A0B0D4T4PFU5M8S1\",\"type\":1,\"datalogger_sn\":\"XGD5BH65F9\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:55:02\",\"device_id\":0,\"device_sn\":\"QTG6B13012\",\"lost\":false,\"model\":\"A0B0D4T4PFU5M8S1\",\"type\":4,\"datalogger_sn\":\"XGD5BH65F9\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:55:03\",\"device_id\":0,\"device_sn\":\"QRG6B1300A\",\"lost\":false,\"model\":\"A0B0D4T4PFU1M6S1\",\"type\":1,\"datalogger_sn\":\"XGD5BH656N\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:55:03\",\"device_id\":0,\"device_sn\":\"QRG6B1300A\",\"lost\":false,\"model\":\"A0B0D4T4PFU1M6S1\",\"type\":4,\"datalogger_sn\":\"XGD5BH656N\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:56:15\",\"device_id\":0,\"device_sn\":\"QTG6B03001\",\"lost\":false,\"model\":\"A0B0D4T4PFU5M8S1\",\"type\":1,\"datalogger_sn\":\"XGD4B024DU\",\"manufacturer\":\"Growatt\",\"status\":1},{\"last_update_time\":\"2024-11-18 16:56:15\",\"device_id\":0,\"device_sn\":\"QTG6B03001\",\"lost\":false,\"model\":\"A0B0D4T4PFU5M8S1\",\"type\":4,\"datalogger_sn\":\"XGD4B024DU\",\"manufacturer\":\"Growatt\",\"status\":1}],\"count\":4},\"error_code\":0}"
+						}
+					]
+				},
+				{
+					"name": "query_device_type",
+					"id": "fc4dfb72-38a9-4efd-bd2e-b06c6e09155e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/device/check/sn?dataloggerSn={{datalogger_sn}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device",
+								"check",
+								"sn"
+							],
+							"query": [
+								{
+									"key": "dataloggerSn",
+									"value": "{{datalogger_sn}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "2ff4308c-75f0-4106-b0c3-fcd60c388f9a",
+							"name": "query_device_type",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/check/sn?dataloggerSn={{datalogger_sn}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"check",
+										"sn"
+									],
+									"query": [
+										{
+											"key": "dataloggerSn",
+											"value": "{{datalogger_sn}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Nov 2024 14:59:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "128"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731941983|1731940788;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731941983|1731940788;Path=/;SameSite=None;Secure"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"result\":1,\"msg\":\"datalog\",\"deviceType\":0,\"dtc\":0,\"haveMeter\":0,\"obj\":3,\"normalPower\":0,\"model\":\"ShineWiFi-X\",\"inSystem\":false}"
+						}
+					]
+				}
+			],
+			"id": "b330cbbe-610b-4a0e-8dbf-c3ea98089878"
+		},
+		{
+			"name": "Inverter",
+			"item": [
+				{
+					"name": "inv_data_info",
+					"id": "b044070f-bc36-4dbc-9eaa-60c95cf93d83",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/device/inverter/inv_data_info?device_sn={{device_sn}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device",
+								"inverter",
+								"inv_data_info"
+							],
+							"query": [
+								{
+									"key": "device_sn",
+									"value": "{{device_sn}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6b46e743-c060-4007-82da-2c1549d60ef7",
+							"name": "inv_data_info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/device/inverter/inv_data_info?device_sn={{device_sn}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"device",
+										"inverter",
+										"inv_data_info"
+									],
+									"query": [
+										{
+											"key": "device_sn",
+											"value": "{{device_sn}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Nov 2024 15:00:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Accept-Charset",
+									"value": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERID=4908fb6aa8618806368aa8658c39ed1e|1731942026|1731940788;Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "SERVERCORSID=4908fb6aa8618806368aa8658c39ed1e|1731942026|1731940788;Path=/;SameSite=None;Secure"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"error_msg\":\"\",\"data\":{\"innerVersion\":\"TIAA17150400\",\"plantname\":\"\",\"communicationVersion\":\"\",\"bigDevice\":false,\"userID\":0,\"updating\":false,\"lastUpdateTimeText\":\"2024-11-18 23:00:03\",\"children\":[],\"lost\":false,\"record\":null,\"energyDayMap\":{},\"model\":0,\"id\":56432,\"deviceType\":0,\"serialNum\":\"QRG6B1300A\",\"level\":4,\"groupID\":0,\"nominalPower\":60000,\"ipm_temperature\":0,\"loadText\":\"0%\",\"powerMax\":\"\",\"imgPath\":\"./css/img/status_green.gif\",\"lastUpdateTime\":{\"date\":18,\"hours\":23,\"seconds\":3,\"month\":10,\"timezoneOffset\":-480,\"year\":124,\"minutes\":0,\"time\":1731942003000,\"day\":1},\"powerMaxText\":\"\",\"status\":1,\"energyMonth\":0,\"inverterInfoStatusCss\":\"vsts_table_green\",\"timezone\":8,\"optimezerList\":[],\"updateExist\":false,\"tcpServerIp\":\"47.254.173.162\",\"parentID\":\"LIST_XGD5BH656N_0\",\"modelText\":\"A0B0D0T0P0U0M0S0\",\"treeID\":\"QRG6B1300A\",\"invSetBean\":null,\"treeName\":\"Inverter 3 mrph\",\"temperature\":0,\"alias\":\"Inverter 3 mrph\",\"fwVersion\":\"TI1.0\",\"power\":0,\"createDate\":null,\"powerMaxTime\":\"\",\"rfStick\":null,\"address\":1,\"plantId\":0,\"userName\":\"\",\"eToday\":0,\"eTotal\":0,\"energyDay\":0,\"statusText\":\"inverter.status.normal\",\"energyMonthText\":\"0\",\"location\":\"\",\"dataLogSn\":\"XGD5BH656N\"},\"device_sn\":\"QRG6B1300A\",\"dataloggerSn\":\"XGD5BH656N\",\"error_code\":0}"
+						}
+					]
+				}
+			],
+			"id": "88b7bc66-68be-4394-857d-63937c2d57fb"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "97798bdd-d3fa-4ec9-9563-b3bee3283a55",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "aad05b43-444f-49d0-88c2-e5899c92b989",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://openapi.growatt.com/v1/"
+		},
+		{
+			"key": "token",
+			"value": "2kq6z6n65227x93xq3n763kt5859kut5"
+		},
+		{
+			"key": "max_device_sn",
+			"value": "XGD5BH656N"
+		},
+		{
+			"key": "plant_id",
+			"value": "98292"
+		},
+		{
+			"key": "user_name",
+			"value": "ARMZA001"
+		},
+		{
+			"key": "user_id",
+			"value": "1"
+		},
+		{
+			"key": "datalogger_sn",
+			"value": "DYDADAE03A"
+		},
+		{
+			"key": "plant_name",
+			"value": "<plant_name>",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "plant_peak_power",
+			"value": "<plant_peak_power>",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "end_user",
+			"value": "gwhsolar",
+			"type": "string"
+		},
+		{
+			"key": "country",
+			"value": "South Africa",
+			"disabled": true
+		},
+		{
+			"key": "email",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "password",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "device_sn",
+			"value": "DYD5A33007",
+			"type": "string"
+		}
+	]
+}
